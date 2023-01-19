@@ -37,4 +37,4 @@ You can download the repository as a ZIP file, or clone it using git.
 
 ## Usage
 First run `npm install`. to install all the Packages.
-Then run `npm start to launch the project and go live.
+Then run `npm start` to launch the project and go live.
