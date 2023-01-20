@@ -5,7 +5,7 @@ import Changer from "./Changer";
 const Book = ({ book, changeShelf }) => {
 	const selectShelf = (shelf) => {
 		update(book, shelf);
-		changeShelf && changeShelf(book, shelf);
+		changeShelf(book, shelf);
 	};
   const placeholder = 'https://via.placeholder.com/128x193.png?text=No+Image'
 	return (

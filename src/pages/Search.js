@@ -4,7 +4,7 @@ import { search } from './../BooksAPI';
 import './../App.css';
 import Book from '../components/Book';
 
-const Search = ({myBooks}) => {
+const Search = ({myBooks,changeShelf}) => {
 	const [result, setResult] = useState([]);
 
 	const searchQuery = (input) => {
@@ -33,7 +33,7 @@ const Search = ({myBooks}) => {
               book['shelf']= bookIndx > -1 ? myBooks[bookIndx].shelf : 'none';
 							return (
 								<li key={book.id}>
-									<Book book={book} />
+									<Book book={book} changeShelf={changeShelf}/>
 								</li>
 							);
 						})}
