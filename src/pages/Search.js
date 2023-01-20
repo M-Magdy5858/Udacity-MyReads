@@ -1,17 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAll, search } from './../BooksAPI';
+import { search } from './../BooksAPI';
 import './../App.css';
 import Book from '../components/Book';
 
-const Search = () => {
+const Search = ({myBooks}) => {
 	const [result, setResult] = useState([]);
-  const [myBooks, setMyBooks] = useState([]);
-
-
-	useEffect(() => {
-		getAll().then((books) => setMyBooks(books));
-	}, []);
 
 	const searchQuery = (input) => {
 		input.length
@@ -36,7 +30,7 @@ const Search = () => {
 					{result.length &&
 						result.map((book) => {
               const bookIndx =  myBooks.findIndex(mybook=>book.id===mybook.id)
-              book['shelf']= bookIndx > -1 ? myBooks[bookIndx].shelf : 'no';
+              book['shelf']= bookIndx > -1 ? myBooks[bookIndx].shelf : 'none';
 							return (
 								<li key={book.id}>
 									<Book book={book} />

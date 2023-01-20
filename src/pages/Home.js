@@ -1,22 +1,8 @@
 import './../App.css';
-// import Book from '../components/Book';
-import { getAll } from './../BooksAPI';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Shelf from '../components/Shelf';
 
-const Home = () => {
-	const [myBooks, setMyBooks] = useState([]);
-
-	useEffect(() => {
-		getAll().then((books) => setMyBooks(books));
-	}, []);
-
-	const changeShelf = (book, shelf) => {
-		const indx = myBooks.findIndex((mybook) => mybook.id === book.id);
-		myBooks[indx].shelf = shelf;
-		setMyBooks([...myBooks]);
-	};
+const Home = ({myBooks,changeShelf}) => {
 
 	return (
 		<div className="list-books">
